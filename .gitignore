@@ -1,4 +1,3 @@
-/node_modules
 /0x00-ES6_basic/node_modules
 package-lock.json
-/tests
+/0x00-ES6_basic/tests/
