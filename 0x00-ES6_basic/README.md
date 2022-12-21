@@ -59,6 +59,161 @@ npm run lint 0-constants.js --fix
 
 touch 0-main.js
 chmod +x 0-main.js
+npm run dev ./tests/0-main.js 
+```
+
+## [1. Block Scope](1-block-scoped.js)
+```bash
+touch 1-block-scoped.js
+chmod +x 1-block-scoped.js
+npm run lint 1-block-scoped.js --fix
+
+touch ./tests/1-main.js
+chmod +x ./tests/1-main.js
+npm run dev ./tests/1-main.js 
+```
+
+## [2. Arrow functions](2-arrow.js)
+```bash
+touch 2-arrow.js
+chmod +x 2-arrow.js
+npm run lint 2-arrow.js --fix
+
+touch ./tests/2-main.js
+chmod +x ./tests/2-main.js
+npm run dev ./tests/2-main.js 
+```
+
+## [3. Parameter defaults](3-default-parameter.js)
+```bash
+touch 3-default-parameter.js
+chmod +x 3-default-parameter.js
+npm run lint 3-default-parameter.js --fix
+
+touch ./tests/3-main.js
+chmod +x ./tests/3-main.js
+npm run dev ./tests/3-main.js 
+```
+
+## [4. Rest parameter syntax for functions](4-rest-parameter.js)
+```bash
+touch 4-rest-parameter.js
+chmod +x 4-rest-parameter.js
+npm run lint 4-rest-parameter.js --fix
+
+touch ./tests/4-main.js
+chmod +x ./tests/4-main.js
+npm run dev ./tests/4-main.js
+```
+
+## [5. The wonders of spread syntax](5-spread-operator.js)
+```bash
+touch 5-spread-operator.js
+chmod +x 5-spread-operator.js
+npm run lint 5-spread-operator.js --fix
+
+touch ./tests/5-main.js
+chmod +x ./tests/5-main.js
+npm run dev ./tests/5-main.js
+```
+
+## [6. Take advantage of template literals](6-string-interpolation.js)
+```bash
+touch 6-string-interpolation.js
+chmod +x 6-string-interpolation.js
+npm run lint 6-string-interpolation.js --fix
+
+touch ./tests/6-main.js
+chmod +x ./tests/6-main.js
+npm run dev ./tests/6-main.js
+```
+
+## [7. Object property value shorthand syntax](7-getBudgetObject.js)
+```bash
+touch 7-getBudgetObject.js
+chmod +x 7-getBudgetObject.js
+npm run lint 7-getBudgetObject.js --fix
+
+touch ./tests/7-main.js
+chmod +x ./tests/7-main.js
+npm run dev ./tests/7-main.js
+```
+
+## [8. No need to create empty objects before adding in properties](8-getBudgetCurrentYear.js)
+```bash
+touch 8-getBudgetCurrentYear.js
+chmod +x 8-getBudgetCurrentYear.js
+npm run lint 8-getBudgetCurrentYear.js --fix
+
+touch ./tests/8-main.js
+chmod +x ./tests/8-main.js
+npm run dev ./tests/8-main.js
+```
+
+## [9. ES6 method properties](9-getFullBudget.js)
+```bash
+touch 9-getFullBudget.js
+chmod +x 9-getFullBudget.js
+npm run lint 9-getFullBudget.js --fix
+
+touch ./tests/9-main.js
+chmod +x ./tests/9-main.js
+npm run dev ./tests/9-main.js
+```
+
+## [10. For...of Loops](10-loops.js)
+```bash
+touch 10-loops.js
+chmod +x 10-loops.js
+npm run lint 10-loops.js --fix
+
+touch ./tests/10-main.js
+chmod +x ./tests/10-main.js
+npm run dev ./tests/10-main.js
+```
+
+## [11. Iterator](11-createEmployeesObject.js)
+```bash
+touch 11-createEmployeesObject.js
+chmod +x 11-createEmployeesObject.js
+npm run lint 11-createEmployeesObject.js --fix
+
+touch ./tests/11-main.js
+chmod +x ./tests/11-main.js
+npm run dev ./tests/11-main.js
+```
+
+## [12. Let's create a report object](12-createReportObject.js)
+```bash
+touch 12-createReportObject.js
+chmod +x 12-createReportObject.js
+npm run lint 12-createReportObject.js --fix
+
+touch ./tests/12-main.js
+chmod +x ./tests/12-main.js
+npm run dev ./tests/12-main.js
+```
+
+## [13. Iterating through report objects ](100-createIteratorObject.js)
+```bash
+touch 100-createIteratorObject.js
+chmod +x 100-createIteratorObject.js
+npm run lint 100-createIteratorObject.js --fix
+
+touch ./tests/100-main.js
+chmod +x ./tests/100-main.js
+npm run dev ./tests/100-main.js
+```
+
+## [14. Iterate through object](101-iterateThroughObject.js)
+```bash
+touch 101-iterateThroughObject.js
+chmod +x 101-iterateThroughObject.js
+npm run lint 101-iterateThroughObject.js --fix
+
+touch ./tests/101-main.js
+chmod +x ./tests/101-main.js
+npm run dev ./tests/101-main.js
 ```
 
 # :books: References
