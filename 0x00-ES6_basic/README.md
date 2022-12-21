@@ -30,7 +30,8 @@ npm run dev <filename>
 npm install --save-dev eslint
 
 # Setup eslint configuration
-npx eslint --init
+npx eslint --init # or
+npm init @eslint/config
 
 # Lint a folder with js file or lint a js file.
 npx eslint <folder | filename>
