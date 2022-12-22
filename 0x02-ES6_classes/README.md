@@ -41,19 +41,6 @@ chmod +x ./tests/1-main.js
 npm run dev ./tests/1-main.js 
 ```
 
-## [2. Catch me if you can!](2-then.js)
-```bash
-# Create an executable task file.
-touch ./2-then.js
-chmod +x ./2-then.js
-npm run lint 2-then.js --fix
-
-# Create an executable task test file.
-touch ./tests/2-main.js
-chmod +x ./tests/2-main.js
-npm run dev ./tests/2-main.js 
-```
-
 ## [2. A Course, Getters, and Setters](2-hbtn_course.js)
 ```bash
 # Create an executable task file.
@@ -68,7 +55,20 @@ chmod +x ./tests/3-main.js
 npm run dev ./tests/3-main.js 
 ```
 
-## [4. Simple promise](4-user-promise.js)
+## [3. Methods, static methods, computed methods names..... MONEY ](3-currency.js)
+```bash
+# Create an executable task file.
+touch ./3-currency.js
+chmod +x ./3-currency.js
+npm run lint 3-currency.js --fix
+
+# Create an executable task test file.
+touch ./tests/3-main.js
+chmod +x ./tests/3-main.js
+npm run dev ./tests/3-main.js
+```
+
+## [3. Methods, static methods, computed methods names..... MONEY ](4-user-promise.js)
 ```bash
 # Create an executable task file.
 touch ./4-user-promise.js
