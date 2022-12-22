@@ -1,4 +1,3 @@
-/* eslint-disable no-underscore-dangle */
 import Currency from './3-currency';
 
 export default class Pricing {
@@ -11,27 +10,41 @@ export default class Pricing {
     return this._amount;
   }
 
-  set amount(newAmount) {
-    if (typeof newAmount !== 'number') {
-      throw new TypeError('Amount must be a number');
+  set amount(value) {
+    if (typeof value !== 'number') {
+      throw new TypeError('amount must be a number');
     }
-
-    this._amount = newAmount;
+    this._amount = value;
   }
 
+  /**
+   * @returns {Currency}
+   */
   get currency() {
     return this._currency;
   }
 
-  set currency(newCurrency) {
-    if (!(newCurrency instanceof Currency)) {
-      throw new TypeError('Currency must be of type Currency');
+  /**
+   * @param {Currency} value
+   */
+  set currency(value) {
+    if (!(value instanceof Currency)) {
+      throw new TypeError('currency must be a Currency');
     }
-
-    this._currency = newCurrency;
+    this._currency = value;
   }
 
   displayFullPrice() {
-    return `${this.amount} ${this.currency.displayFullCurrency()}`;
+    return `${this.amount} ${this.currency.name} (${this.currency.code})`;
+  }
+
+  static convertPrice(amount, conversionRate) {
+    if (typeof amount !== 'number') {
+      throw new TypeError('amount must be a number');
+    }
+    if (typeof conversionRate !== 'number') {
+      throw new TypeError('conversionRate must be a number');
+    }
+    return amount * conversionRate;
   }
 }
