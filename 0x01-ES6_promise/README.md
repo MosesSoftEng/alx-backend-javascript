@@ -81,6 +81,19 @@ chmod +x ./tests/4-main.js
 npm run dev ./tests/4-main.js 
 ```
 
+## [5. Reject the promises](5-photo-reject.js)
+```bash
+# Create an executable task file.
+touch ./5-photo-reject.js
+chmod +x ./5-photo-reject.js
+npm run lint 5-photo-reject.js --fix
+
+# Create an executable task test file.
+touch ./tests/5-main.js
+chmod +x ./tests/5-main.js
+npm run dev ./tests/5-main.js 
+```
+
 # :books: References
 1. [JavaScript Promises](https://www.w3schools.com/js/js_promise.asp#:~:text=The%20Promise%20object%20supports%20two,result%20is%20an%20error%20object.)
 
