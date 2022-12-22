@@ -54,13 +54,13 @@ chmod +x ./tests/2-main.js
 npm run dev ./tests/2-main.js 
 ```
 
-## [3. Handle multiple successful promises](3-all.js)
+## [2. A Course, Getters, and Setters](2-hbtn_course.js)
 ```bash
 # Create an executable task file.
 # Create an executable task file.
-touch ./3-all.js
-chmod +x ./3-all.js
-npm run lint 3-all.js --fix
+touch ./2-hbtn_course.js
+chmod +x ./2-hbtn_course.js
+npm run lint 2-hbtn_course.js --fix
 
 # Create an executable task test file.
 touch ./tests/3-main.js
