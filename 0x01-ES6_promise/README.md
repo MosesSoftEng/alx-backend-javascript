@@ -133,6 +133,19 @@ chmod +x ./tests/8-main.js
 npm run dev ./tests/8-main.js 
 ```
 
+## [9. Throw an error](9-try.js)
+```bash
+# Create an executable task file.
+touch ./9-try.js
+chmod +x ./9-try.js
+npm run lint 9-try.js --fix
+
+# Create an executable task test file.
+touch ./tests/9-main.js
+chmod +x ./tests/9-main.js
+npm run dev ./tests/9-main.js 
+```
+
 # :books: References
 1. [JavaScript Promises](https://www.w3schools.com/js/js_promise.asp#:~:text=The%20Promise%20object%20supports%20two,result%20is%20an%20error%20object.)
 
