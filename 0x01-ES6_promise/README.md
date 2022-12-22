@@ -104,7 +104,20 @@ npm run lint 6-final-user.js --fix
 # Create an executable task test file.
 touch ./tests/6-main.js
 chmod +x ./tests/6-main.js
-npm run dev ./tests/6-main.js 
+npm run dev ./tests/6-main.js
+```
+
+## [7. Load balancer](7-load_balancer.js)
+```bash
+# Create an executable task file.
+touch ./7-load_balancer.js
+chmod +x ./7-load_balancer.js
+npm run lint 7-load_balancer.js --fix
+
+# Create an executable task test file.
+touch ./tests/7-main.js
+chmod +x ./tests/7-main.js
+npm run dev ./tests/7-main.js 
 ```
 
 # :books: References
