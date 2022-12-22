@@ -45,6 +45,9 @@ npm uninstall --save-dev jest
 
 npm install --save-dev jest@27.0.0
 
+# Run jet test
+npm run test
+
 # Install @babel/jest
 # npm install --save-dev babel-jest
 # npm uninstall --save-dev babel-jest
