@@ -68,12 +68,12 @@ chmod +x ./tests/3-main.js
 npm run dev ./tests/3-main.js
 ```
 
-## [3. Methods, static methods, computed methods names..... MONEY ](4-user-promise.js)
+## [4. Pricing](4-pricing.js)
 ```bash
 # Create an executable task file.
-touch ./4-user-promise.js
-chmod +x ./4-user-promise.js
-npm run lint 4-user-promise.js --fix
+touch ./4-pricing.js
+chmod +x ./4-pricing.js
+npm run lint 4-pricing.js --fix
 
 # Create an executable task test file.
 touch ./tests/4-main.js
