@@ -28,12 +28,12 @@ chmod +x ./tests/0-main.js
 npm run dev ./tests/0-main.js 
 ```
 
-## [1. Don't make a promise...if you know you can't keep it](1-promise.js)
+## [1. Let's make some classrooms](1-make_classrooms.js)
 ```bash
 # Create task file and set execute permission.
-touch ./1-promise.js
-chmod +x ./1-promise.js
-npm run lint 1-promise.js --fix
+touch ./1-make_classrooms.js
+chmod +x ./1-make_classrooms.js
+npm run lint 1-make_classrooms.js --fix
 
 # Create test file
 touch ./tests/1-main.js
