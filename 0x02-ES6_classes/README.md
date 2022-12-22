@@ -81,12 +81,12 @@ chmod +x ./tests/4-main.js
 npm run dev ./tests/4-main.js 
 ```
 
-## [5. Reject the promises](5-photo-reject.js)
+## [5. A Building](5-building.js)
 ```bash
 # Create an executable task file.
-touch ./5-photo-reject.js
-chmod +x ./5-photo-reject.js
-npm run lint 5-photo-reject.js --fix
+touch ./5-building.js
+chmod +x ./5-building.js
+npm run lint 5-building.js --fix
 
 # Create an executable task test file.
 touch ./tests/5-main.js
@@ -160,7 +160,7 @@ npm run dev ./tests/100-main.js
 ```
 
 # :books: References
-1. [JavaScript Promises](https://www.w3schools.com/js/js_promise.asp#:~:text=The%20Promise%20object%20supports%20two,result%20is%20an%20error%20object.)
+1. [Abstract class and method in JavaScript](https://sandromiguel.com/abstract-class-and-method-in-javascript/)
 
 # :man: Author and Credits.
 This project was done by [SE. Moses Mwangi](https://github.com/MosesSoftEng). Feel free to get intouch with me;
