@@ -94,6 +94,19 @@ chmod +x ./tests/5-main.js
 npm run dev ./tests/5-main.js 
 ```
 
+## [6. Handle multiple promises](6-final-user.js)
+```bash
+# Create an executable task file.
+touch ./6-final-user.js
+chmod +x ./6-final-user.js
+npm run lint 6-final-user.js --fix
+
+# Create an executable task test file.
+touch ./tests/6-main.js
+chmod +x ./tests/6-main.js
+npm run dev ./tests/6-main.js 
+```
+
 # :books: References
 1. [JavaScript Promises](https://www.w3schools.com/js/js_promise.asp#:~:text=The%20Promise%20object%20supports%20two,result%20is%20an%20error%20object.)
 
