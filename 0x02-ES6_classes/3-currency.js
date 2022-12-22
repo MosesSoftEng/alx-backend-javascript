@@ -1,5 +1,5 @@
 /* eslint-disable no-underscore-dangle */
-export default class HolbertonCourse {
+export default class Currency {
   constructor(code, name) {
     this.code = code;
     this.name = name;
