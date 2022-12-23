@@ -146,12 +146,25 @@ chmod +x ./tests/9-main.js
 npm run dev ./tests/9-main.js 
 ```
 
-## [10. Await / Async](100-await.js)
+## [10. Vroom](10-car.js)
 ```bash
 # Create an executable task file.
-touch ./100-await.js
-chmod +x ./100-await.js
-npm run lint 100-await.js --fix
+touch ./10-car.js
+chmod +x ./10-car.js
+npm run lint 10-car.js --fix
+
+# Create an executable task test file.
+touch ./tests/10-main.js
+chmod +x ./tests/10-main.js
+npm run dev ./tests/10-main.js 
+```
+
+## [11. EVCar](100-evcar.js)
+```bash
+# Create an executable task file.
+touch ./100-evcar.js
+chmod +x ./100-evcar.js
+npm run lint 100-evcar.js --fix
 
 # Create an executable task test file.
 touch ./tests/100-main.js
