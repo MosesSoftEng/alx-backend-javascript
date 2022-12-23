@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 export default class HolbertonClass {
   constructor(size, location) {
     this.size = size;
@@ -8,16 +9,24 @@ export default class HolbertonClass {
     return this._size;
   }
 
-  set size(value) {
-    this._size = value;
+  set size(newSize) {
+    if (typeof newSize !== 'number') {
+      throw new TypeError('Size must be a number');
+    }
+
+    this._size = newSize;
   }
 
   get location() {
     return this._location;
   }
 
-  set location(value) {
-    this._location = value;
+  set location(newLocation) {
+    if (typeof newLocation !== 'string') {
+      throw new TypeError('Location must be a string');
+    }
+
+    this._location = newLocation;
   }
 
   [Symbol.toPrimitive](hint) {
