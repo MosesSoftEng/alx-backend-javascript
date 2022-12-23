@@ -94,12 +94,12 @@ chmod +x ./tests/5-main.js
 npm run dev ./tests/5-main.js 
 ```
 
-## [6. Handle multiple promises](6-final-user.js)
+## [6. Inheritance](6-sky_high.js)
 ```bash
 # Create an executable task file.
-touch ./6-final-user.js
-chmod +x ./6-final-user.js
-npm run lint 6-final-user.js --fix
+touch ./6-sky_high.js
+chmod +x ./6-sky_high.js
+npm run lint 6-sky_high.js --fix
 
 # Create an executable task test file.
 touch ./tests/6-main.js

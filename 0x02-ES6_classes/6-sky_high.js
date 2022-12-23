@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import Building from './5-building';
 
 export default class SkyHighBuilding extends Building {
@@ -10,8 +11,12 @@ export default class SkyHighBuilding extends Building {
     return this._floors;
   }
 
-  set floors(value) {
-    this._floors = value;
+  set floors(newFloors) {
+    if (typeof newFloors !== 'number') {
+      throw new TypeError('Floors must be a number');
+    }
+
+    this._floors = newFloors;
   }
 
   evacuationWarningMessage() {
