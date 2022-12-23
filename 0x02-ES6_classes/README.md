@@ -120,12 +120,12 @@ chmod +x ./tests/7-main.js
 npm run dev ./tests/7-main.js 
 ```
 
-## [8. Throw error / try catch](8-try.js)
+## [8. Primitive - Holberton Class](8-hbtn_class.js)
 ```bash
 # Create an executable task file.
-touch ./8-try.js
-chmod +x ./8-try.js
-npm run lint 8-try.js --fix
+touch ./8-hbtn_class.js
+chmod +x ./8-hbtn_class.js
+npm run lint 8-hbtn_class.js --fix
 
 # Create an executable task test file.
 touch ./tests/8-main.js
@@ -133,12 +133,12 @@ chmod +x ./tests/8-main.js
 npm run dev ./tests/8-main.js 
 ```
 
-## [9. Throw an error](9-try.js)
+## [9. Hoisting](9-hoisting.js)
 ```bash
 # Create an executable task file.
-touch ./9-try.js
-chmod +x ./9-try.js
-npm run lint 9-try.js --fix
+touch ./9-hoisting.js
+chmod +x ./9-hoisting.js
+npm run lint 9-hoisting.js --fix
 
 # Create an executable task test file.
 touch ./tests/9-main.js
