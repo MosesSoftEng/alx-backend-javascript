@@ -107,12 +107,12 @@ chmod +x ./tests/6-main.js
 npm run dev ./tests/6-main.js
 ```
 
-## [7. Load balancer](7-load_balancer.js)
+## [7. Airport](7-airport.js)
 ```bash
 # Create an executable task file.
-touch ./7-load_balancer.js
-chmod +x ./7-load_balancer.js
-npm run lint 7-load_balancer.js --fix
+touch ./7-airport.js
+chmod +x ./7-airport.js
+npm run lint 7-airport.js --fix
 
 # Create an executable task test file.
 touch ./tests/7-main.js
