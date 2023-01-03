@@ -173,3 +173,29 @@ touch ./tests/10-main.js
 chmod +x ./tests/10-main.js
 npm run dev ./tests/10-main.js 
 ```
+## [11. Weak link data structure](100-weak.js)
+### Task requirements.
+Export a const instance of WeakMap and name it weakMap.
+
+Export a new function named queryAPI. It should accept an endpoint argument like so:
+```
+  {
+    protocol: 'http',
+    name: 'getUsers',
+  }
+```
+Track within the weakMap the number of times queryAPI is called for each endpoint.
+
+When the number of queries is >= 5 throw an error with the message Endpoint load is high.
+### Task setup.
+```bash
+# Create an executable task file.
+touch ./100-weak.js
+chmod +x ./100-weak.js
+npm run lint 100-weak.js --fix
+
+# Create an executable task test file.
+touch ./tests/100-main.js
+chmod +x ./tests/100-main.js
+npm run dev ./tests/100-main.js 
+```
