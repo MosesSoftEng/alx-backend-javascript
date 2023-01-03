@@ -2,20 +2,20 @@
  * Return a string of all set values that start with a specific string.
  * @param {Set} set - The set to process.
  * @param {String} startString - The string to check for.
- * @return {String|''} - The cleaned string, or ``.
+ * @return {String} - The cleaned string.
  */
 export default function cleanSet(set, startString) {
-  if (!set || !startString || !(set instanceof Set) || typeof startString !== 'string') {
+  if (typeof startString !== 'string') {
     return '';
   }
-
-  // Convert the set to an array and filter out values that don't start
-  // with the startString
-  const filtered = Array.from(set).filter((value) => value.startsWith(startString));
-
-  // Map the filtered array to a new array with the values cleaned up
-  const cleaned = filtered.map((value) => value.slice(startString.length));
-
-  // Join the cleaned values with a dash separator
-  return cleaned.join('-');
+  if (startString === '') {
+    return '';
+  }
+  const allvalues = [];
+  set.forEach((value) => {
+    if (typeof value === 'string' && value.startsWith(startString)) {
+      allvalues.push(value.slice(startString.length, value.length));
+    }
+  });
+  return allvalues.join('-');
 }
