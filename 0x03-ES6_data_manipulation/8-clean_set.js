@@ -5,7 +5,7 @@
  * @return {String|''} - The cleaned string, or ``.
  */
 export default function cleanSet(set, startString) {
-  if (!startString) {
+  if (!set || !startString || !(set instanceof Set) || typeof startString !== 'string') {
     return '';
   }
 
