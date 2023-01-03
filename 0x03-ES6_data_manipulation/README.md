@@ -78,3 +78,20 @@ touch ./tests/4-main.js
 chmod +x ./tests/4-main.js
 npm run dev ./tests/4-main.js 
 ```
+
+## [5. Typed Arrays](5-typed_arrays.js)
+### Task requirements.
+Create a function named createInt8TypedArray that returns a new ArrayBuffer with an Int8 value at a specific position.
+
+### Task setup.
+```bash
+# Create an executable task file.
+touch ./5-typed_arrays.js
+chmod +x ./5-typed_arrays.js
+npm run lint 5-typed_arrays.js --fix
+
+# Create an executable task test file.
+touch ./tests/5-main.js
+chmod +x ./tests/5-main.js
+npm run dev ./tests/5-main.js 
+```
