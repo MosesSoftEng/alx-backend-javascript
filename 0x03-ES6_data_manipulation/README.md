@@ -146,3 +146,14 @@ touch ./tests/8-main.js
 chmod +x ./tests/8-main.js
 npm run dev ./tests/8-main.js 
 ```
+
+## [9. Map data structure](9-groceries_list.js)
+### Task requirements.
+Create a function named groceriesList that returns a map of groceries with the following items (name, quantity):
+```
+Apples, 10
+Tomatoes, 10
+Pasta, 1
+Rice, 1
+Banana, 5
+```
