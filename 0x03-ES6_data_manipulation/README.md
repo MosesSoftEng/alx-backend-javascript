@@ -95,3 +95,20 @@ touch ./tests/5-main.js
 chmod +x ./tests/5-main.js
 npm run dev ./tests/5-main.js 
 ```
+
+## [6. Set data structure](6-set.js)
+### Task requirements
+Create a function named setFromArray that returns a Set from an array.
+
+### Task setup
+```bash
+# Create an executable task file.
+touch ./6-set.js
+chmod +x ./6-set.js
+npm run lint 6-set.js --fix
+
+# Create an executable task test file.
+touch ./tests/6-main.js
+chmod +x ./tests/6-main.js
+npm run dev ./tests/6-main.js
+```
