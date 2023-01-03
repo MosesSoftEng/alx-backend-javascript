@@ -13,6 +13,10 @@ npm run dev ./tests/0-main.js
 ```
 
 ## [1. More mapping ](1-get_list_student_ids.js)
+### Task requirements
+Create a function getListStudentIds that returns an array of ids from a list of object.
+
+### Task setup
 ```bash
 # Create task file and set execute permission.
 touch ./1-get_list_student_ids.js
