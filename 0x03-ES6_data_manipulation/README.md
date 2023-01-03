@@ -112,3 +112,20 @@ touch ./tests/6-main.js
 chmod +x ./tests/6-main.js
 npm run dev ./tests/6-main.js
 ```
+
+## [7. More set data structure](7-has_array_values.js)
+### Task requirements.
+Create a function named hasValuesFromArray that returns a boolean if all the elements in the array exist within the set.
+
+### Task setup
+```bash
+# Create an executable task file.
+touch ./7-has_array_values.js
+chmod +x ./7-has_array_values.js
+npm run lint 7-has_array_values.js --fix
+
+# Create an executable task test file.
+touch ./tests/7-main.js
+chmod +x ./tests/7-main.js
+npm run dev ./tests/7-main.js 
+```
