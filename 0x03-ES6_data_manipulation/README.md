@@ -61,3 +61,20 @@ touch ./tests/3-main.js
 chmod +x ./tests/3-main.js
 npm run dev ./tests/3-main.js
 ```
+
+## [4. Combine](4-update_grade_by_city.js)
+### Task requirements
+Create a function updateStudentGradeByCity that returns an array of students for a specific city with their new grade.
+
+### Task setup
+```bash
+# Create an executable task file.
+touch ./4-update_grade_by_city.js
+chmod +x ./4-update_grade_by_city.js
+npm run lint 4-update_grade_by_city.js --fix
+
+# Create an executable task test file.
+touch ./tests/4-main.js
+chmod +x ./tests/4-main.js
+npm run dev ./tests/4-main.js 
+```
