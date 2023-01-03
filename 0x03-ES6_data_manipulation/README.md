@@ -44,3 +44,20 @@ touch ./tests/2-main.js
 chmod +x ./tests/2-main.js
 npm run dev ./tests/2-main.js 
 ```
+
+## [3. Reduce](3-get_ids_sum.js)
+### Task requirements.
+Create a function getStudentIdsSum that returns the sum of all the student ids.
+
+### Task setup.
+```bash
+# Create an executable task file.
+touch ./3-get_ids_sum.js
+chmod +x ./3-get_ids_sum.js
+npm run lint 3-get_ids_sum.js --fix
+
+# Create an executable task test file.
+touch ./tests/3-main.js
+chmod +x ./tests/3-main.js
+npm run dev ./tests/3-main.js
+```
