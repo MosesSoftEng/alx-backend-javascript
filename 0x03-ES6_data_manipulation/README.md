@@ -28,3 +28,19 @@ touch ./tests/1-main.js
 chmod +x ./tests/1-main.js
 npm run dev ./tests/1-main.js 
 ```
+
+## [2. Filter](2-get_students_by_loc.js)
+### Task requirements.
+
+### Task setup.
+```bash
+# Create task file and set execute permission.
+touch ./2-get_students_by_loc.js
+chmod +x ./2-get_students_by_loc.js
+npm run lint 2-get_students_by_loc.js --fix
+
+# Create an executable task test file.
+touch ./tests/2-main.js
+chmod +x ./tests/2-main.js
+npm run dev ./tests/2-main.js 
+```
