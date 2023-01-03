@@ -157,3 +157,19 @@ Pasta, 1
 Rice, 1
 Banana, 5
 ```
+
+## [10. More map data structure](10-update_uniq_items.js)
+### Task requirements
+
+### Task setup
+```bash
+# Create an executable task file.
+touch ./10-update_uniq_items.js
+chmod +x ./10-update_uniq_items.js
+npm run lint 10-update_uniq_items.js --fix
+
+# Create an executable task test file.
+touch ./tests/10-main.js
+chmod +x ./tests/10-main.js
+npm run dev ./tests/10-main.js 
+```
