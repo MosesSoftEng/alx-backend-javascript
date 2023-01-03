@@ -1,5 +1,26 @@
+# :book: 0x01. ES6 Promises.
+## Topics Covered
+1. ES6 Data Structures Types; Array, Set and Type.
+
+## :wrench: Project setup.
+```bash
+# Create project directory and readme.
+mkdir ./0x03-ES6_data_manipulation/
+touch ./0x03-ES6_data_manipulation/README.md
+mkdir ./0x03-ES6_data_manipulation/tests/
+
+# Add node.js basic files from node-project-starter then run
+npm i
+
+# Run all tests
+npm run full-test
+```
+
 # :computer: Tasks.
 ## [0. Basic list of objects ](0-get_list_students.js)
+### Task requirements
+
+### Task setup
 ```bash
 # Create task file and set execute permission.
 touch ./0-get_list_students.js
@@ -13,10 +34,10 @@ npm run dev ./tests/0-main.js
 ```
 
 ## [1. More mapping ](1-get_list_student_ids.js)
-### Task requirements
+### Task requirements.
 Create a function getListStudentIds that returns an array of ids from a list of object.
 
-### Task setup
+### Task setup.
 ```bash
 # Create task file and set execute permission.
 touch ./1-get_list_student_ids.js
@@ -29,15 +50,16 @@ chmod +x ./tests/1-main.js
 npm run dev ./tests/1-main.js 
 ```
 
-## [2. Filter](2-get_students_by_loc.js)
+## [2. Filter](3-get_ids_sum.js)
 ### Task requirements.
+Create a function getStudentsByLocation that returns an array of objects who are located in a specific city.
 
 ### Task setup.
 ```bash
 # Create task file and set execute permission.
-touch ./2-get_students_by_loc.js
-chmod +x ./2-get_students_by_loc.js
-npm run lint 2-get_students_by_loc.js --fix
+touch ./3-get_ids_sum.js
+chmod +x ./3-get_ids_sum.js
+npm run lint 3-get_ids_sum.js --fix
 
 # Create an executable task test file.
 touch ./tests/2-main.js
@@ -158,10 +180,23 @@ Rice, 1
 Banana, 5
 ```
 
-## [10. More map data structure](10-update_uniq_items.js)
-### Task requirements
+### Task setup.
+```bash
+# Create an executable task file.
+touch ./9-groceries_list.js
+chmod +x ./9-groceries_list.js
+npm run lint 9-groceries_list.js --fix
 
-### Task setup
+# Create an executable task test file.
+touch ./tests/9-main.js
+chmod +x ./tests/9-main.js
+npm run dev ./tests/9-main.js 
+```
+
+## [10. More map data structure](10-update_uniq_items.js)
+### Task requirements.
+
+### Task setup.
 ```bash
 # Create an executable task file.
 touch ./10-update_uniq_items.js
@@ -173,6 +208,7 @@ touch ./tests/10-main.js
 chmod +x ./tests/10-main.js
 npm run dev ./tests/10-main.js 
 ```
+
 ## [11. Weak link data structure](100-weak.js)
 ### Task requirements.
 Export a const instance of WeakMap and name it weakMap.
@@ -199,3 +235,15 @@ touch ./tests/100-main.js
 chmod +x ./tests/100-main.js
 npm run dev ./tests/100-main.js 
 ```
+
+# :books: References
+1. [Abstract class and method in JavaScript](https://sandromiguel.com/abstract-class-and-method-in-javascript/)
+
+# :man: Author and Credits.
+This project was done by [SE. Moses Mwangi](https://github.com/MosesSoftEng). Feel free to get intouch with me;
+
+:iphone: WhatsApp [+254115227963](https://wa.me/254115227963)
+
+:email: Email [moses.soft.eng@gmail.com](mailto:moses.soft.eng@gmail.com)
+
+:thumbsup: A lot of thanks to [ALX-Africa Software Engineering](https://www.alxafrica.com/) program for the project requirements.
