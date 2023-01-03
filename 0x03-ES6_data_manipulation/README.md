@@ -129,3 +129,20 @@ touch ./tests/7-main.js
 chmod +x ./tests/7-main.js
 npm run dev ./tests/7-main.js 
 ```
+
+## [8. Clean set](8-clean_set.js)
+### Task requirements
+Create a function named cleanSet that returns a string of all the set values that start with a specific string (startString).
+
+### Task setup
+```bash
+# Create an executable task file.
+touch ./8-clean_set.js
+chmod +x ./8-clean_set.js
+npm run lint 8-clean_set.js --fix
+
+# Create an executable task test file.
+touch ./tests/8-main.js
+chmod +x ./tests/8-main.js
+npm run dev ./tests/8-main.js 
+```
