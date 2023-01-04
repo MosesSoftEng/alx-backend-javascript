@@ -171,3 +171,39 @@ cp -r task_0 task_1
 ### :heavy_check_mark: Solution
 > [:point_right: task_1](task_1)
 
+## [2. Extending the Teacher class](task_2)
+### :page_with_curl: Task requirements.
+Write an interface named Directors that extends Teacher. It requires an attribute named numberOfReports(number)
+
+Example:
+```
+const director1: Directors = {
+  firstName: 'John',
+  lastName: 'Doe',
+  location: 'London',
+  fullTimeEmployee: true,
+  numberOfReports: 17,
+};
+console.log(director1);
+
+// should print
+// Object
+// firstName: "John"
+// fullTimeEmployee: true
+// lastName: "Doe"
+// location: "London"
+// numberOfReports: 17
+```
+
+### :wrench: Task setup.
+```bash
+# Create task file and set execute permission.
+cp -r task_1 task_2
+
+# Run project
+npm run start-dev
+```
+
+### :heavy_check_mark: Solution
+> [:point_right: task_2](task_2)
+
