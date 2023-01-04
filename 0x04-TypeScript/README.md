@@ -207,3 +207,25 @@ npm run start-dev
 ### :heavy_check_mark: Solution
 > [:point_right: task_2](task_2)
 
+## [3. Printing teachers](task_3)
+### :page_with_curl: Task requirements.
+Write a function printTeacher:
+
+  *  It accepts two arguments firstName and lastName
+  *  It returns the first letter of the firstName and the full lastName
+  *  Example: printTeacher("John", "Doe") -> J. Doe
+
+Write an interface for the function named printTeacherFunction.
+
+### :wrench: Task setup.
+```bash
+# Create task file and set execute permission.
+cp -r task_2 task_3
+
+# Run project
+cd task_3
+npm run start-dev
+```
+
+### :heavy_check_mark: Solution
+> [:point_right: task_3](task_3)
