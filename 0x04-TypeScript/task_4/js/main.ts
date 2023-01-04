@@ -1,26 +1,24 @@
-interface StudentClassInterface  {
-  workOnHomework(): string;
-  displayName(): string;
-}
+export const cpp: Subjects.Cpp = new Subjects.Cpp();
+export const java: Subjects.Java = new Subjects.Java();
+export const react: Subjects.React = new Subjects.React();
 
-interface StudentConstructor {
-  new(firstName: string, lastName: string): StudentClassInterface;
-}
+export const cTeacher: Subjects.Teacher = {
+  firstName: 'John',
+  lastName: 'Doe',
+  experienceTeachingC: 10,
+};
 
-class StudentClass implements StudentClassInterface {
-  firstName: string;
-  lastName: string;
+console.log('C++');
+cpp.setTeacher = cTeacher;
+console.log(cpp.getRequirements());
+console.log(cpp.getAvailableTeacher());
 
-  constructor(firstName: string, lastName: string) {
-    this.firstName = firstName;
-    this.lastName = lastName;
-  }
+console.log('Java');
+java.setTeacher = cTeacher;
+console.log(java.getRequirements());
+console.log(java.getAvailableTeacher());
 
-  workOnHomework(): string {
-    return 'Currently working';
-  }
-
-  displayName(): string {
-    return this.firstName;
-  }
-}
+console.log('React');
+react.setTeacher = cTeacher;
+console.log(react.getRequirements());
+console.log(react.getAvailableTeacher());
