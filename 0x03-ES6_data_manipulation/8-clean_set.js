@@ -5,17 +5,20 @@
  * @return {String} - The cleaned string.
  */
 export default function cleanSet(set, startString) {
-  if (typeof startString !== 'string') {
+  const strArr = [];
+
+  if (!startString || typeof startString !== 'string') {
     return '';
   }
-  if (startString === '') {
-    return '';
-  }
-  const allvalues = [];
-  set.forEach((value) => {
-    if (typeof value === 'string' && value.startsWith(startString)) {
-      allvalues.push(value.slice(startString.length, value.length));
+
+  set.forEach((str) => {
+    // Check set element is a string
+    if (typeof str === 'string') {
+      if (str.startsWith(startString)) {
+        strArr.push(str.substring(startString.length));
+      }
     }
   });
-  return allvalues.join('-');
+
+  return strArr.join('-');
 }
