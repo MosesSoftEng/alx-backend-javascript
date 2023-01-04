@@ -1,3 +1,10 @@
+# :book: 0x04-TypeScript.
+## :page_with_curl: Topics Covered
+1. ES6 Data Structures;
+    1. Array and Typed Array Data Structure.
+    2. Map and WeakMap Data Structure.
+    3. Set Data Structure.
+
 # :computer: Tasks.
 ## [0. Creating an interface for a student](task_0/js/main.ts)
 ### :page_with_curl: Task requirements.
@@ -291,6 +298,17 @@ Create a function createEmployee with the following requirements:
   *  It accepts 1 arguments:
         salary(either number or string)
   *  if salary is a number and less than 500 - It should return a new Teacher. Otherwise it should return a Director
+  Expected result:
+
+```
+console.log(createEmployee(200));
+Teacher
+console.log(createEmployee(1000));
+Director
+console.log(createEmployee('$500'));
+Director
+```
+
 
 ### :wrench: Task setup.
 ```bash
@@ -304,6 +322,7 @@ npm run start-dev
 
 ### :heavy_check_mark: Solution
 > [:point_right: task_5](task_5)
+
 ## [6. Creating functions specific to employees](task_6)
 ### Task requirements
 Write a function isDirector:
@@ -439,6 +458,28 @@ Requirements:
   *   The main file and the ambient file should both import the types defined in the interface file.
   *  You can easily test your ambient file by looking at the intellisense of your IDE when using the 3rd party functions.
 
+### Task setup
+```bash
+# Create task file and set execute permission.
+cp -r task_0 task_3
+
+touch task_3/js/interface.ts
+chmod +x task_3/js/interface.ts
+
+touch task_3/js/crud.js
+chmod +x task_3/crud.js
+
+touch task_3/js/crud.d.ts
+chmod +x task_3/crud.d.ts
+
+# Run project
+cd task_8
+npm run start-dev
+```
+
+### :heavy_check_mark: Solution
+> [:point_right: task_8](task_8)
+
 ## [9. Namespace & Declaration merging](task_4)
 ### Task requirements
 Create a new directory task_4 and copy the above tsconfig.json and put this package.json in there
@@ -532,6 +573,7 @@ npm run build
 
 ### :heavy_check_mark: Solution
 > [:point_right: task_4](task_4)
+
 ## [11. Brand convention & Nominal typing](task_5)
 ### Task requirements
 Create a directory task_5 and copy these configuration files into the root of task_5: package.json, tsconfig.json, webpack.config.js
@@ -557,3 +599,17 @@ npm run start-dev
 ### :heavy_check_mark: Solution
 > [:point_right: task_5](task_5)
 
+# :books: References
+1. [JavaScript Typed Array Reference](https://www.w3schools.com/jsref/jsref_obj_typed_array.asp)
+2. [JavaScript Maps](https://www.w3schools.com/js/js_object_maps.asp)
+3. [JavaScript Maps](https://www.w3schools.com/js/js_object_sets.asp)
+4. [JavaScript WeakMap](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap)
+
+# :man: Author and Credits.
+This project was done by [SE. Moses Mwangi](https://github.com/MosesSoftEng). Feel free to get intouch with me;
+
+:iphone: WhatsApp [+254115227963](https://wa.me/254115227963)
+
+:email: Email [moses.soft.eng@gmail.com](mailto:moses.soft.eng@gmail.com)
+
+:thumbsup: A lot of thanks to [ALX-Africa Software Engineering](https://www.alxafrica.com/) program for the project and learning resources.
