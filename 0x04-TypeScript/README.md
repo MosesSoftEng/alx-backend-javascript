@@ -337,3 +337,33 @@ npm run start-dev
 
 ### :heavy_check_mark: Solution
 > [:point_right: task_6](task_6)
+
+## [7. String literal types](task_7)
+### Task requirements
+Write a String literal type named Subjects allowing a variable to have the value Math or History only. Write a function named teachClass:
+
+  *  it takes todayClass as an argument
+  *  it will return the string Teaching Math if todayClass is Math
+  *  it will return the string Teaching History if todayClass is History
+
+Expected result:
+```
+teachClass('Math');
+Teaching Math
+teachClass('History');
+Teaching History
+```
+
+### Task setup
+```bash
+# Create task file and set execute permission.
+cp -r task_6 task_7
+
+# Run project
+cd task_7
+npm run start-dev
+```
+
+### :heavy_check_mark: Solution
+> [:point_right: task_7](task_7)
+
