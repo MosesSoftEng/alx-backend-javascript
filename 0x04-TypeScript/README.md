@@ -229,3 +229,33 @@ npm run start-dev
 
 ### :heavy_check_mark: Solution
 > [:point_right: task_3](task_3)
+
+## [4. Writing a class](task_4)
+### Task requirements
+Write a Class named StudentClass:
+
+  *  The constructor accepts firstName(string) and lastName(string) arguments
+  *  The class has a method named workOnHomework that return the string Currently working
+    The class has a method named displayName. It returns the firstName of the student
+  *  The constructor of the class should be described through an Interface
+  *  The class should be described through an Interface
+
+Requirements:
+
+  *  You can reuse the Webpack configuration from the previous exercise to compile the code.
+  *  When running npm run build, no TypeScript error should be displayed.
+  *  Every variable should use TypeScript when possible.
+
+### Task setup
+```bash
+# Create task file and set execute permission.
+cp -r task_3 task_4
+
+# Run project
+cd task_4
+npm run start-dev
+```
+
+### :heavy_check_mark: Solution
+> [:point_right: task_4](task_4)
+
