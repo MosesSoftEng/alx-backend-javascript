@@ -15,6 +15,18 @@ Introduction to Javascript ES6 Data Strucutre Types and Data Manipulation.
 
 > [:point_right: Go to project](0x03-ES6_data_manipulation)
 
+## [0x04. Typescript](0x04-TypeScript)
+Introduction to Typescript.
+
+### :wrench: Project setup.
+```bash
+# Create project directory and readme.
+mkdir ./0x04-TypeScript/
+touch ./0x04-TypeScript/README.md
+```
+
+> [:point_right: Go to project](0x04-TypeScript)
+
 # :man: Author and Credits.
 This project was done by [SE. Moses Mwangi](https://github.com/MosesSoftEng). Feel free to get intouch with me;
 
