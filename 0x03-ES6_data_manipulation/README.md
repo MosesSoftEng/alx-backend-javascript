@@ -1,6 +1,9 @@
 # :book: 0x01. ES6 Promises.
-## Topics Covered
-1. ES6 Data Structures Types; Array, Set and Type.
+## :page_with_curl: Topics Covered
+1. ES6 Data Structures;
+    1. Array and Typed Array Data Structure.
+    2. Map and WeakMap Data Structure.
+    3. Set Data Structure.
 
 ## :wrench: Project setup.
 ```bash
@@ -18,9 +21,33 @@ npm run full-test
 
 # :computer: Tasks.
 ## [0. Basic list of objects ](0-get_list_students.js)
-### Task requirements
+### :page_with_curl: Task requirements.
+Create a function named getListStudents that returns an array of objects.
 
-### Task setup
+Each object should have three attributes: id (Number), firstName (String), and location (String).
+
+The array contains the following students in order:
+
+  *  Guillaume, id: 1, in San Francisco
+  *  James, id: 2, in Columbia
+  *  Serena, id: 5, in San Francisco
+
+```
+bob@dylan:~$ cat 0-main.js
+import getListStudents from "./0-get_list_students.js";
+
+console.log(getListStudents());
+
+bob@dylan:~$ 
+bob@dylan:~$ npm run dev 0-main.js 
+[
+  { id: 1, firstName: 'Guillaume', location: 'San Francisco' },
+  { id: 2, firstName: 'James', location: 'Columbia' },
+  { id: 5, firstName: 'Serena', location: 'San Francisco' }
+]
+bob@dylan:~$ 
+```
+### :wrench: Task setup.
 ```bash
 # Create task file and set execute permission.
 touch ./0-get_list_students.js
@@ -33,11 +60,14 @@ chmod +x ./tests/0-main.js
 npm run dev ./tests/0-main.js 
 ```
 
+### :heavy_check_mark: Solution
+> [0-get_list_students.js](0-get_list_students.js)
+
 ## [1. More mapping ](1-get_list_student_ids.js)
-### Task requirements.
+### :page_with_curl: Task requirements.
 Create a function getListStudentIds that returns an array of ids from a list of object.
 
-### Task setup.
+### :wrench: Task setup.
 ```bash
 # Create task file and set execute permission.
 touch ./1-get_list_student_ids.js
@@ -51,10 +81,10 @@ npm run dev ./tests/1-main.js
 ```
 
 ## [2. Filter](3-get_ids_sum.js)
-### Task requirements.
+### :page_with_curl: Task requirements.
 Create a function getStudentsByLocation that returns an array of objects who are located in a specific city.
 
-### Task setup.
+### :wrench: Task setup.
 ```bash
 # Create task file and set execute permission.
 touch ./3-get_ids_sum.js
@@ -68,10 +98,10 @@ npm run dev ./tests/2-main.js
 ```
 
 ## [3. Reduce](3-get_ids_sum.js)
-### Task requirements.
+### :page_with_curl: Task requirements.
 Create a function getStudentIdsSum that returns the sum of all the student ids.
 
-### Task setup.
+### :wrench: Task setup.
 ```bash
 # Create an executable task file.
 touch ./3-get_ids_sum.js
@@ -102,10 +132,10 @@ npm run dev ./tests/4-main.js
 ```
 
 ## [5. Typed Arrays](5-typed_arrays.js)
-### Task requirements.
+### :page_with_curl: Task requirements.
 Create a function named createInt8TypedArray that returns a new ArrayBuffer with an Int8 value at a specific position.
 
-### Task setup.
+### :wrench: Task setup.
 ```bash
 # Create an executable task file.
 touch ./5-typed_arrays.js
@@ -136,7 +166,7 @@ npm run dev ./tests/6-main.js
 ```
 
 ## [7. More set data structure](7-has_array_values.js)
-### Task requirements.
+### :page_with_curl: Task requirements.
 Create a function named hasValuesFromArray that returns a boolean if all the elements in the array exist within the set.
 
 ### Task setup
@@ -170,7 +200,7 @@ npm run dev ./tests/8-main.js
 ```
 
 ## [9. Map data structure](9-groceries_list.js)
-### Task requirements.
+### :page_with_curl: Task requirements.
 Create a function named groceriesList that returns a map of groceries with the following items (name, quantity):
 ```
 Apples, 10
@@ -180,7 +210,7 @@ Rice, 1
 Banana, 5
 ```
 
-### Task setup.
+### :wrench: Task setup.
 ```bash
 # Create an executable task file.
 touch ./9-groceries_list.js
@@ -194,9 +224,9 @@ npm run dev ./tests/9-main.js
 ```
 
 ## [10. More map data structure](10-update_uniq_items.js)
-### Task requirements.
+### :page_with_curl: Task requirements.
 
-### Task setup.
+### :wrench: Task setup.
 ```bash
 # Create an executable task file.
 touch ./10-update_uniq_items.js
@@ -210,7 +240,7 @@ npm run dev ./tests/10-main.js
 ```
 
 ## [11. Weak link data structure](100-weak.js)
-### Task requirements.
+### :page_with_curl: Task requirements.
 Export a const instance of WeakMap and name it weakMap.
 
 Export a new function named queryAPI. It should accept an endpoint argument like so:
@@ -223,7 +253,7 @@ Export a new function named queryAPI. It should accept an endpoint argument like
 Track within the weakMap the number of times queryAPI is called for each endpoint.
 
 When the number of queries is >= 5 throw an error with the message Endpoint load is high.
-### Task setup.
+### :wrench: Task setup.
 ```bash
 # Create an executable task file.
 touch ./100-weak.js
@@ -237,7 +267,10 @@ npm run dev ./tests/100-main.js
 ```
 
 # :books: References
-1. [Abstract class and method in JavaScript](https://sandromiguel.com/abstract-class-and-method-in-javascript/)
+1. [JavaScript Typed Array Reference](https://www.w3schools.com/jsref/jsref_obj_typed_array.asp)
+2. [JavaScript Maps](https://www.w3schools.com/js/js_object_maps.asp)
+3. [JavaScript Maps](https://www.w3schools.com/js/js_object_sets.asp)
+4. [JavaScript WeakMap](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap)
 
 # :man: Author and Credits.
 This project was done by [SE. Moses Mwangi](https://github.com/MosesSoftEng). Feel free to get intouch with me;
@@ -246,4 +279,4 @@ This project was done by [SE. Moses Mwangi](https://github.com/MosesSoftEng). Fe
 
 :email: Email [moses.soft.eng@gmail.com](mailto:moses.soft.eng@gmail.com)
 
-:thumbsup: A lot of thanks to [ALX-Africa Software Engineering](https://www.alxafrica.com/) program for the project requirements.
+:thumbsup: A lot of thanks to [ALX-Africa Software Engineering](https://www.alxafrica.com/) program for the project and learning resources.
