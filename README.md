@@ -46,7 +46,7 @@ cd 0x02-Session_authentication
 
 
 <!---->
-## [0x05. NodeJS Basics](0x05. NodeJS Basics)
+## [0x05. NodeJS Basics](0x05-Node_JS_basic)
 This project involves learning NodeJS basics concept covered;
 1. Using NodeJS modules
 2. Reading files
