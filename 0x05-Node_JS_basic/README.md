@@ -9,6 +9,7 @@ This project involves learning NodeJS basics concept covered;
 6. Using Nodemon.
 
 # :computer: Tasks.
+<!---->
 ## [0. Executing basic javascript with Node JS](0-console.js)
 ### :page_with_curl: Task requirements.
 In the file `0-console.js`, create a function named `displayMessage` that prints in `STDOUT` the string argument.
@@ -31,6 +32,7 @@ In the file `0-console.js`, create a function named `displayMessage` that prints
 
 ### :wrench: Task setup.
 ```bash
+# Create solution file.
 touch 0-console.js
 chmod +x 0-console.js
 
@@ -44,67 +46,58 @@ node tests/0-main.js
 ```
 
 ### :heavy_check_mark: Solution
-> [:point_right: api/v1/app.py](api/v1/app.py), [:point_right: api/v1/views/users.py](api/v1/views/users.py)
+> [:point_right: 0-console.js](0-console.js)
+<!---->
 
-
-## [1. Empty session](api/v1/app.py)
+<!---->
+## [1. Using Process stdin](1-stdin.js)
 ### :page_with_curl: Task requirements.
-Score: 0.0% (Checks completed: 0.0%)
+Create a program named `1-stdin.js` that will be executed through command line:
 
-Create a class `SessionAuth` that inherits from `Auth`. For the moment this class will be empty. It’s the first step for creating a new authentication mechanism:
+* It should display the message `Welcome to Holberton School, what is your name?` (followed by a new line)
+* The user should be able to input their name on a new line
+* The program should display `Your name is: INPUT`
+* When the user ends the program, it should display `This important software is now closing` (followed by a new line)
 
-* validate if everything inherits correctly without any overloading
-* validate the “switch” by using environment variables
+**Requirements:**
 
-Update `api/v1/app.py` for using `SessionAuth` instance for the variable `auth` depending of the value of the environment variable `AUTH_TYPE`, If `AUTH_TYPE` is equal to `session_auth`:
-
-* import `SessionAuth` from `api.v1.auth.session_auth`
-* create an instance of `SessionAuth` and assign it to the variable `auth`
-
-Otherwise, keep the previous mechanism.
-
-In the first terminal:
+* Your code will be tested through a child process, make sure you have everything you need for that
 ```
-    bob@dylan:~$ API_HOST=0.0.0.0 API_PORT=5000 AUTH_TYPE=session_auth python3 -m api.v1.app
-     * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
-    ....
-```
-
-In a second terminal:
-```
-    bob@dylan:~$ curl "http://0.0.0.0:5000/api/v1/status"
-    {
-      "status": "OK"
-    }
-    bob@dylan:~$
-    bob@dylan:~$ curl "http://0.0.0.0:5000/api/v1/status/"
-    {
-      "status": "OK"
-    }
-    bob@dylan:~$
-    bob@dylan:~$ curl "http://0.0.0.0:5000/api/v1/users"
-    {
-      "error": "Unauthorized"
-    }
+    bob@dylan:~$ node 1-stdin.js 
+    Welcome to Holberton School, what is your name?
+    Bob
+    Your name is: Bob
     bob@dylan:~$ 
-    bob@dylan:~$ curl "http://0.0.0.0:5000/api/v1/users" -H "Authorization: Test"
-    {
-      "error": "Forbidden"
-    }
-    bob@dylan:~$
+    bob@dylan:~$ echo "John" | node 1-stdin.js 
+    Welcome to Holberton School, what is your name?
+    Your name is: John
+    This important software is now closing
+    bob@dylan:~$ 
 ```
+
+**Repo:**
+
+* GitHub repository: `alx-backend-javascript`
+* Directory: `0x05-Node_JS_basic`
+* File: `1-stdin.js`
 
 ### :wrench: Task setup.
 ```bash
-# Start server.
-API_HOST=0.0.0.0 API_PORT=5000 python3 -m api.v1.app
+# Create solution file.
+touch 1-stdin.js
+chmod +x 1-stdin.js
 
-# Tests.
-curl "http://0.0.0.0:5000/api/v1/unauthorized"
+# Lint.
+npm run lint 1-stdin.js --fix
+
+# Test.
+node 1-stdin.js
+echo "John" | node 1-stdin.js 
 ```
 
 ### :heavy_check_mark: Solution
-> [:point_right: api/v1/auth/session_auth.py](api/v1/auth/session_auth.py), [:point_right: api/v1/app.py](api/v1/app.py)
+> [:point_right: 1-stdin.js](1-stdin.js)
+<!---->
 
 ## [2. Create a session](api/v1/app.py)
 ### :page_with_curl: Task requirements.
