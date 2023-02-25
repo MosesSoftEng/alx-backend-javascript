@@ -99,71 +99,67 @@ echo "John" | node 1-stdin.js
 > [:point_right: 1-stdin.js](1-stdin.js)
 <!---->
 
-## [2. Create a session](api/v1/app.py)
+## [2. Reading a file synchronously with Node JS](2-read_file.js)
 ### :page_with_curl: Task requirements.
-Score: 0.0% (Checks completed: 0.0%)
+Using the database `database.csv` (provided in project description), create a function `countStudents` in the file `2-read_file.js`
 
-Update `SessionAuth` class:
-
-* Create a class attribute `user_id_by_session_id` initialized by an empty dictionary
-* Create an instance method `def create_session(self, user_id: str = None) -> str:` that creates a Session ID for a `user_id`:
-    * Return `None` if `user_id` is `None`
-    * Return `None` if `user_id` is not a string
-    * Otherwise:
-        * Generate a Session ID using `uuid` module and `uuid4()` like `id` in `Base`
-        * Use this Session ID as key of the dictionary `user_id_by_session_id` \- the value for this key must be `user_id`
-        * Return the Session ID
-    * The same `user_id` can have multiple Session ID - indeed, the `user_id` is the value in the dictionary `user_id_by_session_id`
-
-Now you an “in-memory” Session ID storing. You will be able to retrieve an `User` id based on a Session ID.
+* Create a function named `countStudents`. It should accept a path in argument
+* The script should attempt to read the database file synchronously
+* If the database is not available, it should throw an error with the text `Cannot load the database`
+* If the database is available, it should log the following message to the console `Number of students: NUMBER_OF_STUDENTS`
+* It should log the number of students in each field, and the list with the following format: `Number of students in FIELD: 6. List: LIST_OF_FIRSTNAMES`
+* CSV file can contain empty lines (at the end) - and they are not a valid student!
 ```
-    bob@dylan:~$ cat  main_1.py 
-    #!/usr/bin/env python3
-    """ Main 1
-    """
-    from api.v1.auth.session_auth import SessionAuth
+    bob@dylan:~$ cat 2-main_0.js
+    const countStudents = require('./2-read_file');
     
-    sa = SessionAuth()
+    countStudents("nope.csv");
     
-    print("{}: {}".format(type(sa.user_id_by_session_id), sa.user_id_by_session_id))
+    bob@dylan:~$ node 2-main_0.js
+    2-read_file.js:9
+        throw new Error('Cannot load the database');
+        ^
     
-    user_id = None
-    session = sa.create_session(user_id)
-    print("{} => {}: {}".format(user_id, session, sa.user_id_by_session_id))
-    
-    user_id = 89
-    session = sa.create_session(user_id)
-    print("{} => {}: {}".format(user_id, session, sa.user_id_by_session_id))
-    
-    user_id = "abcde"
-    session = sa.create_session(user_id)
-    print("{} => {}: {}".format(user_id, session, sa.user_id_by_session_id))
-    
-    user_id = "fghij"
-    session = sa.create_session(user_id)
-    print("{} => {}: {}".format(user_id, session, sa.user_id_by_session_id))
-    
-    user_id = "abcde"
-    session = sa.create_session(user_id)
-    print("{} => {}: {}".format(user_id, session, sa.user_id_by_session_id))
-    
+    Error: Cannot load the database
+    ...
     bob@dylan:~$
-    bob@dylan:~$ API_HOST=0.0.0.0 API_PORT=5000 AUTH_TYPE=session_auth ./main_1.py 
-    <class 'dict'>: {}
-    None => None: {}
-    89 => None: {}
-    abcde => 61997a1b-3f8a-4b0f-87f6-19d5cafee63f: {'61997a1b-3f8a-4b0f-87f6-19d5cafee63f': 'abcde'}
-    fghij => 69e45c25-ec89-4563-86ab-bc192dcc3b4f: {'61997a1b-3f8a-4b0f-87f6-19d5cafee63f': 'abcde', '69e45c25-ec89-4563-86ab-bc192dcc3b4f': 'fghij'}
-    abcde => 02079cb4-6847-48aa-924e-0514d82a43f4: {'61997a1b-3f8a-4b0f-87f6-19d5cafee63f': 'abcde', '02079cb4-6847-48aa-924e-0514d82a43f4': 'abcde', '69e45c25-ec89-4563-86ab-bc192dcc3b4f': 'fghij'}
-    bob@dylan:~$
+    bob@dylan:~$ cat 2-main_1.js
+    const countStudents = require('./2-read_file');
+    
+    countStudents("database.csv");
+    
+    bob@dylan:~$ node 2-main_1.js
+    Number of students: 10
+    Number of students in CS: 6. List: Johann, Arielle, Jonathan, Emmanuel, Guillaume, Katie
+    Number of students in SWE: 4. List: Guillaume, Joseph, Paul, Tommy
+    bob@dylan:~$ 
 ```
+
+**Repo:**
+
+* GitHub repository: `alx-backend-javascript`
+* Directory: `0x05-Node_JS_basic`
+* File: `2-read_file.js`
+
 
 ### :wrench: Task setup.
 ```bash
+# Create solution file.
+touch 0-console.js
+chmod +x 0-console.js
+
+# Lint.
+npm run lint 0-console.js --fix
+
+# Test.
+touch tests/2-main_0.js tests/2-main_1.js
+chmod +x tests/2-main_0.js tests/2-main_1.js
+node tests/2-main_0.js
+node tests/2-main_1.js
 ```
 
 ### :heavy_check_mark: Solution
-> [:point_right: api/v1/auth/session_auth.py](api/v1/auth/session_auth.py)
+> [:point_right: 2-read_file.js](2-read_file.js)
 
 
 ## [3. User ID for Session ID](api/v1/auth/session_auth.py)
