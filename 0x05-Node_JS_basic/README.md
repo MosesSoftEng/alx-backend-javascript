@@ -33,7 +33,14 @@ In the file `0-console.js`, create a function named `displayMessage` that prints
 ```bash
 touch 0-console.js
 chmod +x 0-console.js
+
+# Lint.
 npm run lint 0-console.js --fix
+
+# Test.
+touch tests/0-main.js
+chmod +x tests/0-main.js
+node tests/0-main.js
 ```
 
 ### :heavy_check_mark: Solution
