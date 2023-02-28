@@ -84,53 +84,81 @@ kill <PID>
 <!---->
 
 <!---->
-## [1. Using Process stdin](1-stdin.js)
+## [1. Node Redis Client](0-redis_client.js)
 ### :page_with_curl: Task requirements.
-Create a program named `1-stdin.js` that will be executed through command line:
+Install [node_redis](/rltoken/mRftfl67BrNvl-RM5JQfUA "node_redis") using npm
 
-* It should display the message `Welcome to Holberton School, what is your name?` (followed by a new line)
-* The user should be able to input their name on a new line
-* The program should display `Your name is: INPUT`
-* When the user ends the program, it should display `This important software is now closing` (followed by a new line)
+Using Babel and ES6, write a script named `0-redis_client.js`. It should connect to the Redis server running on your machine:
+
+* It should log to the console the message `Redis client connected to the server` when the connection to Redis works correctly
+* It should log to the console the message `Redis client not connected to the server: ERROR_MESSAGE` when the connection to Redis does not work
 
 **Requirements:**
 
-* Your code will be tested through a child process, make sure you have everything you need for that
+* To import the library, you need to use the keyword `import`
 ```
-    bob@dylan:~$ node 1-stdin.js 
-    Welcome to Holberton School, what is your name?
-    Bob
-    Your name is: Bob
+    bob@dylan:~$ ps ax | grep redis-server
+     2070 pts/1    S+     0:00 grep --color=auto redis-server
     bob@dylan:~$ 
-    bob@dylan:~$ echo "John" | node 1-stdin.js 
-    Welcome to Holberton School, what is your name?
-    Your name is: John
-    This important software is now closing
+    bob@dylan:~$ npm run dev 0-redis_client.js 
+    
+    > queuing_system_in_js@1.0.0 dev /root
+    > nodemon --exec babel-node --presets @babel/preset-env "0-redis_client.js"
+    
+    [nodemon] 2.0.4
+    [nodemon] to restart at any time, enter `rs`
+    [nodemon] watching path(s): *.*
+    [nodemon] watching extensions: js,mjs,json
+    [nodemon] starting `babel-node --presets @babel/preset-env 0-redis_client.js`
+    Redis client not connected to the server: Error: Redis connection to 127.0.0.1:6379 failed - connect ECONNREFUSED 127.0.0.1:6379
+    Redis client not connected to the server: Error: Redis connection to 127.0.0.1:6379 failed - connect ECONNREFUSED 127.0.0.1:6379
+    Redis client not connected to the server: Error: Redis connection to 127.0.0.1:6379 failed - connect ECONNREFUSED 127.0.0.1:6379
+    ^C
     bob@dylan:~$ 
+    bob@dylan:~$ ./src/redis-server > /dev/null 2>&1 &
+    [1] 2073
+    bob@dylan:~$ ps ax | grep redis-server
+     2073 pts/0    Sl     0:00 ./src/redis-server *:6379
+     2078 pts/1    S+     0:00 grep --color=auto redis-server
+    bob@dylan:~$
+    bob@dylan:~$ npm run dev 0-redis_client.js 
+    
+    > queuing_system_in_js@1.0.0 dev /root
+    > nodemon --exec babel-node --presets @babel/preset-env "0-redis_client.js"
+    
+    [nodemon] 2.0.4
+    [nodemon] to restart at any time, enter `rs`
+    [nodemon] watching path(s): *.*
+    [nodemon] watching extensions: js,mjs,json
+    [nodemon] starting `babel-node --presets @babel/preset-env 0-redis_client.js`
+    Redis client connected to the server
+    ^C
+    bob@dylan:~$
 ```
 
 **Repo:**
 
-* GitHub repository: `alx-backend-javascript`
-* Directory: `0x05-Node_JS_basic`
-* File: `1-stdin.js`
+* GitHub repository: `alx-backend`
+* Directory: `0x03-queuing_system_in_js`
+* File: `0-redis_client.js`
+
 
 ### :wrench: Task setup.
 ```bash
 # Create solution file.
-touch 1-stdin.js
-chmod +x 1-stdin.js
+touch 0-redis_client.js
+chmod +x 0-redis_client.js
 
 # Lint.
-npm run lint 1-stdin.js --fix
+npm run lint 0-redis_client.js --fix
 
 # Test.
-node 1-stdin.js
-echo "John" | node 1-stdin.js 
+node 0-redis_client.js
+echo "John" | node 0-redis_client.js 
 ```
 
 ### :heavy_check_mark: Solution
-> [:point_right: 1-stdin.js](1-stdin.js)
+> [:point_right: 0-redis_client.js](0-redis_client.js)
 <!---->
 
 ## [2. Reading a file synchronously with Node JS](2-read_file.js)
