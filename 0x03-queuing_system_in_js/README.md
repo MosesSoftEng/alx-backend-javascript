@@ -227,96 +227,70 @@ npm run dev 1-redis_op.js
 > [:point_right: 1-redis_op.js](1-redis_op.js)
 
 
-## [3. User ID for Session ID](api/v1/auth/session_auth.py)
+## [3. Node Redis client and async operations](2-redis_op_async.js)
 ### :page_with_curl: Task requirements.
-Score: 0.0% (Checks completed: 0.0%)
+In a file `1-redis_op.js`, copy the code you previously wrote (`0-redis_client.js`).
 
-Update `SessionAuth` class:
+Add two functions:
 
-Create an instance method `def user_id_for_session_id(self, session_id: str = None) -> str:` that returns a `User` ID based on a Session ID:
+* `setNewSchool`:
+    * It accepts two arguments `schoolName`, and `value`.
+    * It should set in Redis the value for the key `schoolName`
+    * It should display a confirmation message using `redis.print`
+* `displaySchoolValue`:
+    * It accepts one argument `schoolName`.
+    * It should log to the console the value for the key passed as argument
 
-* Return `None` if `session_id` is `None`
-* Return `None` if `session_id` is not a string
-* Return the value (the User ID) for the key `session_id` in the dictionary `user_id_by_session_id`.
-* You must use `.get()` built-in for accessing in a dictionary a value based on key
+At the end of the file, call:
 
-Now you have 2 methods (`create_session` and `user_id_for_session_id`) for storing and retrieving a link between a `User` ID and a Session ID.
+* `displaySchoolValue('Holberton');`
+* `setNewSchool('HolbertonSanFrancisco', '100');`
+* `displaySchoolValue('HolbertonSanFrancisco');`
+
+**Requirements:**
+
+* Use callbacks for any of the operation, we will look at async operations later
 ```
-    bob@dylan:~$ cat main_2.py 
-    #!/usr/bin/env python3
-    """ Main 2
-    """
-    from api.v1.auth.session_auth import SessionAuth
+    bob@dylan:~$ npm run dev 1-redis_op.js 
     
-    sa = SessionAuth()
+    > queuing_system_in_js@1.0.0 dev /root
+    > nodemon --exec babel-node --presets @babel/preset-env "1-redis_op.js"
     
-    user_id_1 = "abcde"
-    session_1 = sa.create_session(user_id_1)
-    print("{} => {}: {}".format(user_id_1, session_1, sa.user_id_by_session_id))
-    
-    user_id_2 = "fghij"
-    session_2 = sa.create_session(user_id_2)
-    print("{} => {}: {}".format(user_id_2, session_2, sa.user_id_by_session_id))
-    
-    print("---")
-    
-    tmp_session_id = None
-    tmp_user_id = sa.user_id_for_session_id(tmp_session_id)
-    print("{} => {}".format(tmp_session_id, tmp_user_id))
-    
-    tmp_session_id = 89
-    tmp_user_id = sa.user_id_for_session_id(tmp_session_id)
-    print("{} => {}".format(tmp_session_id, tmp_user_id))
-    
-    tmp_session_id = "doesntexist"
-    tmp_user_id = sa.user_id_for_session_id(tmp_session_id)
-    print("{} => {}".format(tmp_session_id, tmp_user_id))
-    
-    print("---")
-    
-    tmp_session_id = session_1
-    tmp_user_id = sa.user_id_for_session_id(tmp_session_id)
-    print("{} => {}".format(tmp_session_id, tmp_user_id))
-    
-    tmp_session_id = session_2
-    tmp_user_id = sa.user_id_for_session_id(tmp_session_id)
-    print("{} => {}".format(tmp_session_id, tmp_user_id))
-    
-    print("---")
-    
-    session_1_bis = sa.create_session(user_id_1)
-    print("{} => {}: {}".format(user_id_1, session_1_bis, sa.user_id_by_session_id))
-    
-    tmp_user_id = sa.user_id_for_session_id(session_1_bis)
-    print("{} => {}".format(session_1_bis, tmp_user_id))
-    
-    tmp_user_id = sa.user_id_for_session_id(session_1)
-    print("{} => {}".format(session_1, tmp_user_id))
+    [nodemon] 2.0.4
+    [nodemon] to restart at any time, enter `rs`
+    [nodemon] watching path(s): *.*
+    [nodemon] watching extensions: js,mjs,json
+    [nodemon] starting `babel-node --presets @babel/preset-env 1-redis_op.js`
+    Redis client connected to the server
+    School
+    Reply: OK
+    100
+    ^C
     
     bob@dylan:~$
-    bob@dylan:~$ API_HOST=0.0.0.0 API_PORT=5000 AUTH_TYPE=session_auth ./main_2.py 
-    abcde => 8647f981-f503-4638-af23-7bb4a9e4b53f: {'8647f981-f503-4638-af23-7bb4a9e4b53f': 'abcde'}
-    fghij => a159ee3f-214e-4e91-9546-ca3ce873e975: {'a159ee3f-214e-4e91-9546-ca3ce873e975': 'fghij', '8647f981-f503-4638-af23-7bb4a9e4b53f': 'abcde'}
-    ---
-    None => None
-    89 => None
-    doesntexist => None
-    ---
-    8647f981-f503-4638-af23-7bb4a9e4b53f => abcde
-    a159ee3f-214e-4e91-9546-ca3ce873e975 => fghij
-    ---
-    abcde => 5d2930ba-f6d6-4a23-83d2-4f0abc8b8eee: {'a159ee3f-214e-4e91-9546-ca3ce873e975': 'fghij', '8647f981-f503-4638-af23-7bb4a9e4b53f': 'abcde', '5d2930ba-f6d6-4a23-83d2-4f0abc8b8eee': 'abcde'}
-    5d2930ba-f6d6-4a23-83d2-4f0abc8b8eee => abcde
-    8647f981-f503-4638-af23-7bb4a9e4b53f => abcde
-    bob@dylan:~$
 ```
+
+**Repo:**
+
+* GitHub repository: `alx-backend`
+* Directory: `0x03-queuing_system_in_js`
+* File: `1-redis_op.js`
 
 ### :wrench: Task setup.
 ```bash
+# Create solution file.
+touch 2-redis_op_async.js
+chmod +x 2-redis_op_async.js
+
+# Lint.
+npm run lint 2-redis_op_async.js --fix
+
+# Test.
+npm run dev 2-redis_op_async.js
 ```
 
 ### :heavy_check_mark: Solution
-> [:point_right: api/v1/auth/session_auth.py](api/v1/auth/session_auth.py
+> [:point_right: 2-redis_op_async.js](2-redis_op_async.js)
 
 
 ## [4. Session cookie](api/v1/auth/auth.py)
