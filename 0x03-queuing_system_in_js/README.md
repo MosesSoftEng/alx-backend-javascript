@@ -371,55 +371,109 @@ npm run dev 4-redis_advanced_op.js
 ### :heavy_check_mark: Solution
 > [:point_right: api/v1/auth/auth.py](api/v1/app.py)
 
-## [5. Before request](api/v1/app.py)
+## [5. Node Redis client publisher and subscriber](5-subscriber.js)
 ### :page_with_curl: Task requirements.
-Score: 0.0% (Checks completed: 0.0%)
+In a file named `5-subscriber.js`, create a redis client:
 
-Update the `@app.before_request` method in `api/v1/app.py`:
+* On connect, it should log the message `Redis client connected to the server`
+* On error, it should log the message `Redis client not connected to the server: ERROR MESSAGE`
+* It should subscribe to the channel `holberton school channel`
+* When it receives message on the channel `holberton school channel`, it should log the message to the console
+* When the message is `KILL_SERVER`, it should unsubscribe and quit
 
-* Add the URL path `/api/v1/auth_session/login/` in the list of excluded paths of the method `require_auth` \- this route doesn’t exist yet but it should be accessible outside authentication
-* If `auth.authorization_header(request)` and `auth.session_cookie(request)` return `None`, `abort(401)`
+In a file named `5-publisher.js`, create a redis client:
 
-In the first terminal:
+* On connect, it should log the message `Redis client connected to the server`
+* On error, it should log the message `Redis client not connected to the server: ERROR MESSAGE`
+* Write a function named `publishMessage`:
+    * It will take two arguments: `message` (string), and `time` (integer - in ms)
+    * After `time` millisecond:
+        * The function should log to the console `About to send MESSAGE`
+        * The function should publish to the channel `holberton school channel`, the message passed in argument after the time passed in arguments
+* At the end of the file, call:
 ```
-    bob@dylan:~$ API_HOST=0.0.0.0 API_PORT=5000 AUTH_TYPE=session_auth SESSION_NAME=_my_session_id python3 -m api.v1.app
-     * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
-    ....
+    publishMessage("Holberton Student #1 starts course", 100);
+    publishMessage("Holberton Student #2 starts course", 200);
+    publishMessage("KILL_SERVER", 300);
+    publishMessage("Holberton Student #3 starts course", 400);
 ```
 
-In a second terminal:
+**Requirements:**
+
+* You only need one Redis server to execute the program
+* You will need to have two node processes to run each script at the same time
+
+**Terminal 1:**
 ```
-    bob@dylan:~$ curl "http://0.0.0.0:5000/api/v1/status"
-    {
-      "status": "OK"
-    }
-    bob@dylan:~$
-    bob@dylan:~$ curl "http://0.0.0.0:5000/api/v1/auth_session/login" # not found but not "blocked" by an authentication system
-    {
-      "error": "Not found"
-    }
-    bob@dylan:~$
-    bob@dylan:~$ curl "http://0.0.0.0:5000/api/v1/users/me"
-    {
-      "error": "Unauthorized"
-    }
-    bob@dylan:~$ curl "http://0.0.0.0:5000/api/v1/users/me" -H "Authorization: Basic Ym9iQGhidG4uaW86SDBsYmVydG9uU2Nob29sOTgh" # Won't work because the environment variable AUTH_TYPE is equal to "session_auth"
-    {
-      "error": "Forbidden"
-    }
-    bob@dylan:~$
-    bob@dylan:~$ curl "http://0.0.0.0:5000/api/v1/users/me" --cookie "_my_session_id=5535d4d7-3d77-4d06-8281-495dc3acfe76" # Won't work because no user is linked to this Session ID
-    {
-      "error": "Forbidden"
-    }
-    bob@dylan:~$
+    bob@dylan:~$ npm run dev 5-subscriber.js 
+    
+    > queuing_system_in_js@1.0.0 dev /root
+    > nodemon --exec babel-node --presets @babel/preset-env "5-subscriber.js"
+    
+    [nodemon] 2.0.4
+    [nodemon] to restart at any time, enter `rs`
+    [nodemon] watching path(s): *.*
+    [nodemon] watching extensions: js,mjs,json
+    [nodemon] starting `babel-node --presets @babel/preset-env 5-subscriber.js`
+    Redis client connected to the server
 ```
+**Terminal 2:**
+```
+    bob@dylan:~$ npm run dev 5-publisher.js 
+    
+    > queuing_system_in_js@1.0.0 dev /root
+    > nodemon --exec babel-node --presets @babel/preset-env "5-publisher.js"
+    
+    [nodemon] 2.0.4
+    [nodemon] to restart at any time, enter `rs`
+    [nodemon] watching path(s): *.*
+    [nodemon] watching extensions: js,mjs,json
+    [nodemon] starting `babel-node --presets @babel/preset-env 5-publisher.js`
+    Redis client connected to the server
+    About to send Holberton Student #1 starts course
+    About to send Holberton Student #2 starts course
+    About to send KILL_SERVER
+    About to send Holberton Student #3 starts course
+    ^C
+    bob@dylan:~$ 
+```
+
+**And in the same time in Terminal 1:**
+```
+    Redis client connected to the server
+    Holberton Student #1 starts course
+    Holberton Student #2 starts course
+    KILL_SERVER
+    [nodemon] clean exit - waiting for changes before restart
+    ^C
+    bob@dylan:~$ 
+```
+
+Now you have a basic Redis-based queuing system where you have a process to generate job and a second one to process it. These 2 processes can be in 2 different servers, which we also call “background workers”.
+
+**Repo:**
+
+* GitHub repository: `alx-backend`
+* Directory: `0x03-queuing_system_in_js`
+* File: `5-subscriber.js, 5-publisher.js`
+
 ### :wrench: Task setup.
 ```bash
+# Create solution file.
+touch 5-subscriber.js 5-publisher.js
+chmod +x 5-subscriber.js 5-publisher.js
+
+# Lint.
+npm run lint 5-subscriber.js
+npm run lint 5-publisher.js
+
+# Test.
+npm run dev 5-subscriber.js
+npm run dev 5-publisher.js 
 ```
 
 ### :heavy_check_mark: Solution
-> [:point_right: api/v1/app.py](api/v1/app.py)
+> [:point_right: 5-subscriber.js](5-subscriber.js), [:point_right: 5-publisher.js](5-publisher.js)
 
 <!---->
 ## [6. Use Session ID for identifying a User](api/v1/app.py)
