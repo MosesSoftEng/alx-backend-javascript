@@ -10,7 +10,7 @@ This project involves how to use Redis and implementing Kue as a queue system. T
 
 # :computer: Tasks.
 <!---->
-## [0. Install a redis instance](0-console.js)
+## [0. Install a redis instance](1-redis_op.js)
 ### :page_with_curl: Task requirements.
 Download, extract, and compile the latest stable Redis version (higher than 5.0.7 - [https://redis.io/download/](/rltoken/v6VB9ZwmVfppL0OmzbmVWQ "https://redis.io/download/")):
 ```
@@ -153,75 +153,78 @@ chmod +x 0-redis_client.js
 npm run lint 0-redis_client.js --fix
 
 # Test.
-node 0-redis_client.js
-echo "John" | node 0-redis_client.js 
+npm run dev 0-redis_client.js
 ```
 
 ### :heavy_check_mark: Solution
 > [:point_right: 0-redis_client.js](0-redis_client.js)
 <!---->
 
-## [2. Reading a file synchronously with Node JS](2-read_file.js)
+## [2. Node Redis client and basic operations](1-redis_op.js)
 ### :page_with_curl: Task requirements.
-Using the database `database.csv` (provided in project description), create a function `countStudents` in the file `2-read_file.js`
+In a file `1-redis_op.js`, copy the code you previously wrote (`0-redis_client.js`).
 
-* Create a function named `countStudents`. It should accept a path in argument
-* The script should attempt to read the database file synchronously
-* If the database is not available, it should throw an error with the text `Cannot load the database`
-* If the database is available, it should log the following message to the console `Number of students: NUMBER_OF_STUDENTS`
-* It should log the number of students in each field, and the list with the following format: `Number of students in FIELD: 6. List: LIST_OF_FIRSTNAMES`
-* CSV file can contain empty lines (at the end) - and they are not a valid student!
+Add two functions:
+
+* `setNewSchool`:
+    * It accepts two arguments `schoolName`, and `value`.
+    * It should set in Redis the value for the key `schoolName`
+    * It should display a confirmation message using `redis.print`
+* `displaySchoolValue`:
+    * It accepts one argument `schoolName`.
+    * It should log to the console the value for the key passed as argument
+
+At the end of the file, call:
+
+* `displaySchoolValue('Holberton');`
+* `setNewSchool('HolbertonSanFrancisco', '100');`
+* `displaySchoolValue('HolbertonSanFrancisco');`
+
+**Requirements:**
+
+* Use callbacks for any of the operation, we will look at async operations later
 ```
-    bob@dylan:~$ cat 2-main_0.js
-    const countStudents = require('./2-read_file');
+    bob@dylan:~$ npm run dev 1-redis_op.js 
     
-    countStudents("nope.csv");
+    > queuing_system_in_js@1.0.0 dev /root
+    > nodemon --exec babel-node --presets @babel/preset-env "1-redis_op.js"
     
-    bob@dylan:~$ node 2-main_0.js
-    2-read_file.js:9
-        throw new Error('Cannot load the database');
-        ^
+    [nodemon] 2.0.4
+    [nodemon] to restart at any time, enter `rs`
+    [nodemon] watching path(s): *.*
+    [nodemon] watching extensions: js,mjs,json
+    [nodemon] starting `babel-node --presets @babel/preset-env 1-redis_op.js`
+    Redis client connected to the server
+    School
+    Reply: OK
+    100
+    ^C
     
-    Error: Cannot load the database
-    ...
     bob@dylan:~$
-    bob@dylan:~$ cat 2-main_1.js
-    const countStudents = require('./2-read_file');
-    
-    countStudents("database.csv");
-    
-    bob@dylan:~$ node 2-main_1.js
-    Number of students: 10
-    Number of students in CS: 6. List: Johann, Arielle, Jonathan, Emmanuel, Guillaume, Katie
-    Number of students in SWE: 4. List: Guillaume, Joseph, Paul, Tommy
-    bob@dylan:~$ 
 ```
 
 **Repo:**
 
-* GitHub repository: `alx-backend-javascript`
-* Directory: `0x05-Node_JS_basic`
-* File: `2-read_file.js`
+* GitHub repository: `alx-backend`
+* Directory: `0x03-queuing_system_in_js`
+* File: `1-redis_op.js`
 
 
 ### :wrench: Task setup.
 ```bash
 # Create solution file.
-touch 0-console.js
-chmod +x 0-console.js
+touch 1-redis_op.js
+chmod +x 1-redis_op.js
 
 # Lint.
-npm run lint 0-console.js --fix
+npm run lint 1-redis_op.js --fix
 
 # Test.
-touch tests/2-main_0.js tests/2-main_1.js
-chmod +x tests/2-main_0.js tests/2-main_1.js
-node tests/2-main_0.js
-node tests/2-main_1.js
+npm run dev 1-redis_op.js
 ```
 
 ### :heavy_check_mark: Solution
-> [:point_right: 2-read_file.js](2-read_file.js)
+> [:point_right: 1-redis_op.js](1-redis_op.js)
 
 
 ## [3. User ID for Session ID](api/v1/auth/session_auth.py)
