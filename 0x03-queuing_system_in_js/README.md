@@ -293,62 +293,79 @@ npm run dev 2-redis_op_async.js
 > [:point_right: 2-redis_op_async.js](2-redis_op_async.js)
 
 
-## [4. Session cookie](api/v1/auth/auth.py)
+## [4. Node Redis client and advanced operations](4-redis_advanced_op.js)
 ### :page_with_curl: Task requirements.
-Score: 0.0% (Checks completed: 0.0%)
+In a file named `4-redis_advanced_op.js`, let’s use the client to store a hash value
 
-Update `api/v1/auth/auth.py` by adding the method `def session_cookie(self, request=None):` that returns a cookie value from a request:
+#### Create Hash:
 
-* Return `None` if `request` is `None`
-* Return the value of the cookie named `_my_session_id` from `request` \- the name of the cookie must be defined by the environment variable `SESSION_NAME`
-* You must use `.get()` built-in for accessing the cookie in the request cookies dictionary
-* You must use the environment variable `SESSION_NAME` to define the name of the cookie used for the Session ID
+Using `hset`, let’s store the following:
 
-In the first terminal:
+* The key of the hash should be `HolbertonSchools`
+* It should have a value for:
+    * `Portland=50`
+    * `Seattle=80`
+    * `New York=20`
+    * `Bogota=20`
+    * `Cali=40`
+    * `Paris=2`
+* Make sure you use `redis.print` for each `hset`
+
+#### Display Hash:
+
+Using `hgetall`, display the object stored in Redis. It should return the following:
+
+**Requirements:**
+
+* Use callbacks for any of the operation, we will look at async operations later
 ```
-    bob@dylan:~$ cat main_3.py
-    #!/usr/bin/env python3
-    """ Cookie server
-    """
-    from flask import Flask, request
-    from api.v1.auth.auth import Auth
+    bob@dylan:~$ npm run dev 4-redis_advanced_op.js 
     
-    auth = Auth()
+    > queuing_system_in_js@1.0.0 dev /root
+    > nodemon --exec babel-node --presets @babel/preset-env "4-redis_advanced_op.js"
     
-    app = Flask(__name__)
-    
-    @app.route('/', methods=['GET'], strict_slashes=False)
-    def root_path():
-        """ Root path
-        """
-        return "Cookie value: {}\n".format(auth.session_cookie(request))
-    
-    if __name__ == "__main__":
-        app.run(host="0.0.0.0", port="5000")
-    
-    bob@dylan:~$ API_HOST=0.0.0.0 API_PORT=5000 AUTH_TYPE=session_auth SESSION_NAME=_my_session_id ./main_3.py 
-     * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
-    ....
+    [nodemon] 2.0.4
+    [nodemon] to restart at any time, enter `rs`
+    [nodemon] watching path(s): *.*
+    [nodemon] watching extensions: js,mjs,json
+    [nodemon] starting `babel-node --presets @babel/preset-env 4-redis_advanced_op.js`
+    Redis client connected to the server
+    Reply: 1
+    Reply: 1
+    Reply: 1
+    Reply: 1
+    Reply: 1
+    Reply: 1
+    {
+      Portland: '50',
+      Seattle: '80',
+      'New York': '20',
+      Bogota: '20',
+      Cali: '40',
+      Paris: '2'
+    }
+    ^C
+    bob@dylan:~$
 ```
 
-In a second terminal:
-```
-    bob@dylan:~$ curl "http://0.0.0.0:5000"
-    Cookie value: None
-    bob@dylan:~$
-    bob@dylan:~$ curl "http://0.0.0.0:5000" --cookie "_my_session_id=Hello"
-    Cookie value: Hello
-    bob@dylan:~$
-    bob@dylan:~$ curl "http://0.0.0.0:5000" --cookie "_my_session_id=C is fun"
-    Cookie value: C is fun
-    bob@dylan:~$
-    bob@dylan:~$ curl "http://0.0.0.0:5000" --cookie "_my_session_id_fake"
-    Cookie value: None
-    bob@dylan:~$
-```
+**Repo:**
+
+* GitHub repository: `alx-backend`
+* Directory: `0x03-queuing_system_in_js`
+* File: `4-redis_advanced_op.js`
+
 
 ### :wrench: Task setup.
 ```bash
+# Create solution file.
+touch 4-redis_advanced_op.js
+chmod +x 4-redis_advanced_op.js
+
+# Lint.
+npm run lint 4-redis_advanced_op.js --fix
+
+# Test.
+npm run dev 4-redis_advanced_op.js
 ```
 
 ### :heavy_check_mark: Solution
