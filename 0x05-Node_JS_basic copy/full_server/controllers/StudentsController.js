@@ -1,13 +1,9 @@
 import readDatabase from '../utils';
 
-/**
- * The list of supported majors.
- */
 const VALID_MAJORS = ['CS', 'SWE'];
 
 /**
- * Contains the student-related route handlers.
- * @author Bezaleel Olakunori <https://github.com/B3zaleel>
+ * Contains the route handlers.
  */
 class StudentsController {
   static getAllStudents(request, response) {
@@ -16,8 +12,6 @@ class StudentsController {
     readDatabase(dataPath)
       .then((studentGroups) => {
         const responseParts = ['This is the list of our students'];
-        // A comparison function for ordering a list of strings in ascending
-        // order by alphabetic order and case insensitive
         const cmpFxn = (a, b) => {
           if (a[0].toLowerCase() < b[0].toLowerCase()) {
             return -1;

@@ -10,7 +10,7 @@ Introduction to Javascript ES6 (ECMAScript 2015). Setup and using: Babel, Eslint
 ## [0x01. ES6 Promises](0x01-ES6_promise)
 Introduction to JavaScript Asynchoronous Programming using Promises.
 
-## [0x01. ES6 Promises](0x03-ES6_data_manipulation)
+## [0x03-ES6_data_manipulation](0x03-ES6_data_manipulation)
 Introduction to Javascript ES6 Data Strucutre Types and Data Manipulation.
 
 > [:point_right: Go to project](0x03-ES6_data_manipulation)
@@ -48,10 +48,10 @@ cd 0x02-Session_authentication
 <!---->
 ## [0x05. NodeJS Basics](0x05-Node_JS_basic)
 This project involves learning NodeJS basics concept covered;
-1. Using NodeJS modules
-2. Reading files
-3. Creating HTTP servers
-4. Using Express JS
+1. Using NodeJS modules.
+2. Reading files.
+3. Creating HTTP servers.
+4. Using Express JS.
 5. Testing with Mocha.
 6. Using Nodemon.
 
